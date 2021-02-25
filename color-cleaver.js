@@ -11,9 +11,10 @@ let color2 = getInput(2);
 
 // Check if there is a first argument
 if (color1 === undefined) {
+  // If there isn't a first argument send the user a message telling them
   console.log(
     "\nPlease enter at least one color.\n" +
-      "A maximum of two colors can be taken as an argument.\n" +
+      "A maximum of two colors can be taken.\n" +
       "\nFor one argument only, please enter one of these colors: orange, green, purple." +
       "\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
   );
@@ -32,11 +33,11 @@ else if (color2 === undefined) {
   // If the color is not valid send the user a message telling them it's not
   else {
     console.log(
-      "\nFor one argument only, please enter one of these colors: orange, green, purple.\n"
+      "\nYour color is not valid.\n\nFor one argument only, please enter one of these colors: orange, green, purple.\n"
     );
   }
 }
-// Check if the colors are the same
+// If there are two arguments check if the colors are the same
 else if (color1 === color2) {
   // If the colors are the same, tell the user that they must be different.
   console.log(
