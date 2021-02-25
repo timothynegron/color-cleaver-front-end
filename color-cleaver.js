@@ -9,7 +9,7 @@ const getInput = require("./get-input.js");
 let color1 = getInput(1);
 let color2 = getInput(2);
 
-// check if there is a first arguement
+// Check if there is a first argument
 if (color1 === undefined) {
   console.log(
     "\nPlease enter at least one color.\n" +
@@ -18,9 +18,9 @@ if (color1 === undefined) {
       "\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
   );
 }
-// if there is a first argument check if there is a second argument
+// If there is a first argument check if there is a second argument
 else if (color2 === undefined) {
-  // if there isn't a second argument check if the color is valid
+  // If there isn't a second argument check if the color is valid
   if (isValidSecondary(color1)) {
     // Send the user info about their color if it's valid
     console.log(
@@ -29,14 +29,14 @@ else if (color2 === undefined) {
         "\n"
     );
   }
-  // if the color is not valid send the user a message telling them it's not
+  // If the color is not valid send the user a message telling them it's not
   else {
     console.log(
       "\nFor one argument only, please enter one of these colors: orange, green, purple.\n"
     );
   }
 }
-// check if the colors are the same
+// Check if the colors are the same
 else if (color1 === color2) {
   // If the colors are the same, tell the user that they must be different.
   console.log(
