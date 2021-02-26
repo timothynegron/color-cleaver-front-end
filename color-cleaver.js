@@ -15,8 +15,8 @@ if (color1 === undefined) {
   console.log(
     "\nPlease enter at least one color.\n" +
       "A maximum of two colors can be taken.\n" +
-      "\nFor one argument only, please enter one of these colors: orange, green, purple." +
-      "\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
+      "\nFor one argument only, please enter one of these secondary colors: orange, green, purple." +
+      "\nFor two arguments, the two colors must be different and must be any of these primary colors: red, blue, yellow.\n"
   );
 }
 // If there is a first argument check if there is a second argument
@@ -33,7 +33,7 @@ else if (color2 === undefined) {
   // If the color is not valid send the user a message telling them it's not
   else {
     console.log(
-      "\nYour color is not valid.\n\nFor one argument only, please enter one of these colors: orange, green, purple.\n"
+      "\nYour color is not valid.\n\nFor one argument only, please enter one of these secondary colors: orange, green, purple.\n"
     );
   }
 }
@@ -42,8 +42,8 @@ else if (color1 === color2) {
   // If the colors are the same, tell the user that they must be different.
   console.log(
     "\nYour colors must be different." +
-      "\n\nFor one argument only, please enter one of these colors: orange, green, purple." +
-      "\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
+      "\n\nFor one argument only, please enter one of these secondary colors: orange, green, purple." +
+      "\nFor two arguments, the two colors must be different and must be any of these primary colors: red, blue, yellow.\n"
   );
 }
 // If all other conditions are false, then they're must be two colors
@@ -62,7 +62,7 @@ else {
     // If both colors are invalid send the user a message telling them
     console.log(
       "\nBoth colors are not valid." +
-        "\n\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
+        "\n\nFor two arguments, the two colors must be different and must be any of these primary colors: red, blue, yellow.\n"
     );
   }
   // Check if first color is invalid
@@ -76,7 +76,7 @@ else {
     }
     // Tell the user what are valid colors for two arguments
     console.log(
-      "\n\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
+      "\n\nFor two arguments, the two colors must be different and must be any of these primary colors: red, blue, yellow.\n"
     );
   }
   // If all other test fail then only the second color is not valid
@@ -84,7 +84,7 @@ else {
     // Tell the user that the second color is not valid
     console.log(
       "\nYour second color is not valid." +
-        "\n\nFor two arguments, the two colors must be different and must be any of these colors: red, blue, yellow.\n"
+        "\n\nFor two arguments, the two colors must be different and must be any of these primary colors: red, blue, yellow.\n"
     );
   }
 }
