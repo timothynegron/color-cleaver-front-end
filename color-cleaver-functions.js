@@ -154,10 +154,12 @@ function twoColorsEntered(firstColor, secondColor, input3) {
     colorsAreTheSameMessage();
   }else if (isValidPrimary(firstColor) && isValidPrimary(secondColor)) {
     twoValidColorsMessage(firstColor, secondColor);
-  } else if (!isValidPrimary(firstColor) && !isValidPrimary(secondColor)) {
-    bothColorsInvalidMessage();
   } else if (!isValidPrimary(firstColor)) {
-    firstColorInvalidMessage();
+    if (!isValidPrimary(secondColor)){
+      bothColorsInvalidMessage();
+    } else {
+      firstColorInvalidMessage();
+    }
   } else {
     secondColorInvalidMessage();
   }
