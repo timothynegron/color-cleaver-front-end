@@ -21,8 +21,8 @@ let color2 = getInput(2);
 //
 //  Algorithm:
 //  1. Checks if user entered any colors.
-//  2. Checks if user entered two colors. Send message color, if only one color.
-//  3. If only two colors entered. Send message about colors.
+//  2. Checks if user entered two colors. Send message if only one color.
+//  3. If two colors entered. Send message about colors.
 //
 //  More Info:
 //  - Has help message when user enters -h or --help.
