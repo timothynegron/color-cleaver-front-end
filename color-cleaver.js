@@ -5,7 +5,6 @@ const getInput = require("./get-input.js");
 const {
   helpUserMessage,
   invalidAmountOfColorsMessage,
-  colorsAreTheSameMessage,
   didNotEnterFirstColorMessage,
   oneColorEntered,
   twoColorsEntered,
@@ -36,8 +35,6 @@ if (getInput(1) === "--help" || getInput(1) === "-h") {
   didNotEnterFirstColorMessage();
 } else if (color2 === undefined) {
   oneColorEntered(color1.toLowerCase());
-} else if (color1.toLowerCase() === color2.toLowerCase()) {
-  colorsAreTheSameMessage();
 } else {
   twoColorsEntered(color1.toLowerCase(), color2.toLowerCase());
 }

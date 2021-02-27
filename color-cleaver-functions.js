@@ -10,7 +10,6 @@ const isValidSecondary = require("./is-valid-secondary.js");
 module.exports = {
   helpUserMessage,
   invalidAmountOfColorsMessage,
-  colorsAreTheSameMessage,
   didNotEnterFirstColorMessage,
   oneColorEntered,
   twoColorsEntered,
@@ -63,7 +62,7 @@ function bothColorsInvalidMessage() {
 
 function invalidAmountOfColorsMessage() {
   console.log(
-    "\nThree or more inputs were entered. This program only accepts a" +
+    "\nThree or more colors were entered. This program only accepts a" +
     "\nmaximum of two colors. Enter - h or --help for help.\n"
   );
 }
@@ -78,7 +77,7 @@ function invalidAmountOfColorsMessage() {
 
 function colorsAreTheSameMessage() {
   console.log(
-    "\nInvalid inputs or your colors are the same. If entering two colors" +
+    "\nYour colors are the same. If entering two colors" +
       "\nthe colors must be different. Enter -h or --help for help.\n"
   );
 }
@@ -148,7 +147,9 @@ function oneColorEntered(color) {
 //************************************************************************//
 
 function twoColorsEntered(firstColor, secondColor) {
-  if (isValidPrimary(firstColor) && isValidPrimary(secondColor)) {
+  if(firstColor === secondColor){
+    colorsAreTheSameMessage();
+  }else if (isValidPrimary(firstColor) && isValidPrimary(secondColor)) {
     twoValidColorsMessage();
   } else if (!isValidPrimary(firstColor) && !isValidPrimary(secondColor)) {
     bothColorsInvalidMessage();
