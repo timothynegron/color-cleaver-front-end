@@ -8,7 +8,7 @@ const isValidSecondary = require("./is-valid-secondary.js");
 // Export these functions
 
 module.exports = {
-  helpUser,
+  helpUserMessage,
   invalidAmountOfColorsMessage,
   colorsAreTheSameMessage,
   didNotEnterFirstColorMessage,
@@ -57,14 +57,14 @@ function bothColorsInvalidMessage() {
 // Function: invalidAmountOfColorsMessage()
 //
 // Purpose: - Tells the user the maximum number of colors they could enter.
-//          - Tells the user how to use the application.
+//          - Tells the user how to ask for help.
 //
 //************************************************************************//
 
 function invalidAmountOfColorsMessage() {
   console.log(
     "\nThree or more inputs were entered. This program only accepts a" +
-    "\nmaximum of two colors. Enter --help for help.\n"
+    "\nmaximum of two colors. Enter - h or --help for help.\n"
   );
 }
 
@@ -72,7 +72,7 @@ function invalidAmountOfColorsMessage() {
 // Function: colorsAreTheSameMessage()
 //
 // Purpose: - Tells the user the colors must be different.
-//          - Tells the user how to use the application.
+//          - Tells the user how to ask for help.
 //
 //************************************************************************//
 
@@ -87,7 +87,7 @@ function colorsAreTheSameMessage() {
 // Function: didNotEnterFirstColorMessage()
 //
 // Purpose: - Tells the user the enter at least one color.
-//          - Tells the user how to use the application.
+//          - Tells the user how to ask for help.
 //
 //************************************************************************//
 
@@ -102,7 +102,7 @@ function didNotEnterFirstColorMessage() {
 //
 //************************************************************************//
 
-function helpUser() {
+function helpUserMessage() {
   console.log(
     "\n   Help:" +
       "\n   --------------------------------------" +
@@ -132,10 +132,7 @@ function helpUser() {
 
 function oneColorEntered(color) {
   if (isValidSecondary(color)) {
-    // The color is valid
-    console.log(
-      "\nMixing " + colorDeconstructor(color) + " make " + color + ".\n"
-    );
+    oneValidColorMessage();
   } else {
     firstColorInvalidMessage();
   }
@@ -152,24 +149,44 @@ function oneColorEntered(color) {
 
 function twoColorsEntered(firstColor, secondColor) {
   if (isValidPrimary(firstColor) && isValidPrimary(secondColor)) {
-    // Both colors are valid
-    console.log(
-      "\nMixing " +
-        firstColor +
-        " and " +
-        secondColor +
-        " will make " +
-        colorCombinator(firstColor, secondColor) +
-        ".\n"
-    );
+    twoValidColorsMessage();
   } else if (!isValidPrimary(firstColor) && !isValidPrimary(secondColor)) {
     bothColorsInvalidMessage();
   } else if (!isValidPrimary(firstColor)) {
     firstColorInvalidMessage();
-    if (!isValidPrimary(secondColor)) {
-      secondColorInvalidMessage();
-    }
   } else {
     secondColorInvalidMessage();
   }
+}
+
+//************************************************************************//
+// Function: oneValidColorMessage(color)
+//
+// Purpose: - Returns a message telling the user info about the color.
+//
+//************************************************************************//
+
+function oneValidColorMessage(color){
+  console.log(
+    "\nMixing " + colorDeconstructor(color) + " make " + color + ".\n"
+  );
+}
+
+//************************************************************************//
+// Function: twoValidColorsMessage(firstColor, secondColor)
+//
+// Purpose: - Returns a message telling the user info about the colors.
+//
+//************************************************************************//
+
+function twoValidColorsMessage(firstColor, secondColor){
+  console.log(
+    "\nMixing " +
+      firstColor +
+      " and " +
+      secondColor +
+      " will make " +
+      colorCombinator(firstColor, secondColor) +
+      ".\n"
+  );
 }
