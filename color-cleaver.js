@@ -3,8 +3,6 @@
 const getInput = require("./get-input.js");
 
 const {
-  helpUserMessage,
-  invalidAmountOfColorsMessage,
   didNotEnterFirstColorMessage,
   oneColorEntered,
   twoColorsEntered,
@@ -19,22 +17,26 @@ let color2 = getInput(2);
 //
 // MAIN PROGRAM
 // ------------
-//  - Accepts user's input with a maximum of two arguments.
-//  - If only entering one argument, input must be a secondary color.
-//  - If entering two arguments, inputs must be primary colors.
+//  Purpose: To tell user about the colors entered.
+//
+//  Algorithm:
+//  1. Checks if user entered any colors.
+//  3. Checks if user entered two colors. Send message color, if only one color.
+//  5. If only two colors entered. Send message about colors.
+//
+//  More Info:
+//  - Has help message when user enters -h or --help.
 //  - Invalid message will appear if the user enters more than three args.
 //  - Invalid message will appear if the user enters invalid colors.
+//  - Invalid message if both colors are invalid.
+//  - Case insensitive.
 //
 //************************************************************************//
 
-if (getInput(1) === "--help" || getInput(1) === "-h") {
-  helpUserMessage();
-} else if (getInput(3) !== undefined) {
-  invalidAmountOfColorsMessage();
-} else if (color1 === undefined) {
+if (color1 === undefined) { // Are there 0 colors?
   didNotEnterFirstColorMessage();
-} else if (color2 === undefined) {
+} else if (color2 === undefined) { // Is there no second color?
   oneColorEntered(color1.toLowerCase());
 } else {
-  twoColorsEntered(color1.toLowerCase(), color2.toLowerCase());
+  twoColorsEntered(color1.toLowerCase(), color2.toLowerCase(), getInput(3));
 }

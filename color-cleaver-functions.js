@@ -8,8 +8,6 @@ const isValidSecondary = require("./is-valid-secondary.js");
 // Export these functions
 
 module.exports = {
-  helpUserMessage,
-  invalidAmountOfColorsMessage,
   didNotEnterFirstColorMessage,
   oneColorEntered,
   twoColorsEntered,
@@ -103,7 +101,7 @@ function didNotEnterFirstColorMessage() {
 
 function helpUserMessage() {
   console.log(
-    "\n   Help:" +
+    "\n   Help Message:" +
       "\n   --------------------------------------" +
       "\n\n   - For one argument only, enter one of" +
       "\n     these secondary colors:" +
@@ -130,7 +128,9 @@ function helpUserMessage() {
 //************************************************************************//
 
 function oneColorEntered(color) {
-  if (isValidSecondary(color)) {
+  if(color === '-h' || color === '--help'){
+    helpUserMessage();
+  } else if (isValidSecondary(color)) {
     oneValidColorMessage();
   } else {
     firstColorInvalidMessage();
@@ -138,16 +138,19 @@ function oneColorEntered(color) {
 }
 
 //************************************************************************//
-// Function: twoColorsEntered(firstColor, secondColor)
+// Function: twoColorsEntered(firstColor, secondColor, input3)
 //
 // Purpose: - Checks if colors are valid.
 //          - If colors are valid returns a message about the colors.
 //          - If colors are not valid tells the user which one is invalid.
+//          - Checks if there is a third input.
 //
 //************************************************************************//
 
-function twoColorsEntered(firstColor, secondColor) {
-  if(firstColor === secondColor){
+function twoColorsEntered(firstColor, secondColor, input3) {
+  if(input3 !== undefined){
+    invalidAmountOfColorsMessage();
+  }else if(firstColor === secondColor){
     colorsAreTheSameMessage();
   }else if (isValidPrimary(firstColor) && isValidPrimary(secondColor)) {
     twoValidColorsMessage();
