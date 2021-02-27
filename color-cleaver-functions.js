@@ -131,7 +131,7 @@ function oneColorEntered(color) {
   if(color === '-h' || color === '--help'){
     helpUserMessage();
   } else if (isValidSecondary(color)) {
-    oneValidColorMessage();
+    oneValidColorMessage(color);
   } else {
     firstColorInvalidMessage();
   }
@@ -153,7 +153,7 @@ function twoColorsEntered(firstColor, secondColor, input3) {
   }else if(firstColor === secondColor){
     colorsAreTheSameMessage();
   }else if (isValidPrimary(firstColor) && isValidPrimary(secondColor)) {
-    twoValidColorsMessage();
+    twoValidColorsMessage(firstColor, secondColor);
   } else if (!isValidPrimary(firstColor) && !isValidPrimary(secondColor)) {
     bothColorsInvalidMessage();
   } else if (!isValidPrimary(firstColor)) {
