@@ -8,16 +8,11 @@ const {
   twoColorsEntered,
 } = require("./color-cleaver-functions.js");
 
-// Global Variables
-
-let color1 = getInput(1);
-let color2 = getInput(2);
-
 //************************************************************************//
 //
 // MAIN PROGRAM
 // ------------
-//  Purpose: To tell user about the colors entered.
+//  Purpose: To tell the user about the colors entered.
 //
 //  Algorithm:
 //  1. Checks if user entered any colors.
@@ -33,10 +28,10 @@ let color2 = getInput(2);
 //
 //************************************************************************//
 
-if (color1 === undefined) { // Are there 0 colors?
+if (getInput(1) === undefined) { // Are there 0 colors?
   didNotEnterFirstColorMessage();
-} else if (color2 === undefined) { // Is there no second color?
-  oneColorEntered(color1.toLowerCase());
+} else if (getInput(2) === undefined) { // Is there no second color?
+  oneColorEntered(getInput(1).toLowerCase());
 } else {
-  twoColorsEntered(color1.toLowerCase(), color2.toLowerCase(), getInput(3));
+  twoColorsEntered(getInput(1).toLowerCase(), getInput(2).toLowerCase(), getInput(3));
 }
