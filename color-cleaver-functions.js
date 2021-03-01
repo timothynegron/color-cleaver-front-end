@@ -174,7 +174,8 @@ function twoColorsEntered(firstColor, secondColor, input3) {
 
 function oneValidColorMessage(color){
   console.log(
-    "\nMixing " + colorDeconstructor(color) + " make " + color + ".\n"
+    "\nThe color " + color + " can be made by mixing " + 
+    colorDeconstructor(color) + ".\n"
   );
 }
 
